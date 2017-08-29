@@ -3,8 +3,6 @@
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 
-
-
 app = Flask(__name__)
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://feng:password123@localhost/wedding' # need to edit
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/weddingdb'
@@ -30,7 +28,7 @@ def land():
 def index():
     return "Hello, World!"
 
-
+'''
 # Save e-mail to database and send to success page
 @app.route('/prereg', methods=['GET', 'POST'])
 def regemail():
@@ -44,6 +42,6 @@ def regemail():
             db.session.commit()
             return "success"
     return "no post"
-
+'''
 if __name__ == "__main__":
 	app.run()
