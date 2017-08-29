@@ -1,13 +1,13 @@
 #Main file for wedding app
 
 from flask import Flask, render_template, request
-from flask sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
 
 
 
 app = Flask(__name__)
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://feng:password123@localhost/wedding' # need to edit
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/wedding'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/weddingdb'
 db = SQLAlchemy(app)
 
 class User(db.Model):
@@ -32,7 +32,7 @@ def index():
 
 
 # Save e-mail to database and send to success page
-@app.route('/prereg', methods=['POST'])
+@app.route('/prereg', methods=['GET', 'POST'])
 def regemail():
     email = None
     if request.method == 'POST':
@@ -42,8 +42,8 @@ def regemail():
             reg = User(email)
             db.session.add(reg)
             db.session.commit()
-            return print('success')
-    return print ('no post')
+            return "success"
+    return "no post"
 
 if __name__ == "__main__":
 	app.run()
