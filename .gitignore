@@ -1,1 +1,5 @@
 weddingenv/
+pws
+db/
+bin/
+*.pyc
