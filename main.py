@@ -8,7 +8,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/weddingdb'
 db = SQLAlchemy(app)
 
-class User(db.Model):
+class Invite(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), unique=True)
     email = db.Column(db.String(120), unique=True)
@@ -18,7 +18,7 @@ class User(db.Model):
         self.email = email 
 
 def __repr__(self):
-        return '<User %r>' % self.username
+        return '<Invite %r>' % self.name
 
 @app.route('/')
 @app.route('/land')

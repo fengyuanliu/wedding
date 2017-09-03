@@ -1,4 +1,15 @@
-"""Resting manager script."""
+from main import db
+#db.create_all()
+from main import Invite
+#me = Invite('Feng','fengyuan.geek@gmail.com')
+#admin = Invite('admin','admin@example.com')
+gen = Invite('Gen','genevieve.ding@gmail.com')
+db.session.add(gen)
+#db.session.add(admin)
+db.session.commit()
+
+
+"""Resting manager script.
 
 from urllib.parse import unquote
 from flask import url_for
@@ -12,13 +23,13 @@ manager = Manager(app) # pylint: disable=invalid-name
 
 @manager.command
 def run_init_db(reset=False):
-    """init db script"""
+    #init db script
     init_db(reset)
 
 
 @manager.command
 def list_routes():
-    """List routes."""
+    #List routes.
     output = list()
     for rule in app.url_map.iter_rules():
         options = dict()
@@ -36,3 +47,4 @@ def list_routes():
 
 if __name__ == "__main__":
     manager.run()
+"""
